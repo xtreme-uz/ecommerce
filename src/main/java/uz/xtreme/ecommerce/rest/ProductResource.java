@@ -6,11 +6,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uz.xtreme.ecommerce.domain.Product;
 import uz.xtreme.ecommerce.service.ProductService;
+import uz.xtreme.ecommerce.service.dto.PageDTO;
 import uz.xtreme.ecommerce.service.dto.ProductDTO;
-
-import java.util.List;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -21,27 +19,23 @@ public class ProductResource {
     private final ProductService service;
 
     @GetMapping
-    public ResponseEntity<List<ProductDTO>> getAll(Pageable pageable) {
-        List<ProductDTO> all = service.getAll(pageable);
-        return ResponseEntity.ok(all);
+    public ResponseEntity<PageDTO> getAll(Pageable pageable) {
+        return ResponseEntity.ok(service.getAll(pageable));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Product> get(@PathVariable Long id) {
-        Product product = service.get(id);
-        return ResponseEntity.ok(product);
+    public ResponseEntity<ProductDTO> get(@PathVariable Long id) {
+        return ResponseEntity.ok(service.get(id));
     }
 
     @PostMapping
-    public ResponseEntity<Product> create(@RequestBody Product product) {
-        Product save = service.create(product);
-        return ResponseEntity.ok(save);
+    public ResponseEntity<ProductDTO> create(@RequestBody ProductDTO product) {
+        return ResponseEntity.ok(service.create(product));
     }
 
     @PutMapping
-    public ResponseEntity<Product> update(@RequestBody Product product) {
-        Product update = service.update(product);
-        return ResponseEntity.ok(update);
+    public ResponseEntity<ProductDTO> update(@RequestBody ProductDTO product) {
+        return ResponseEntity.ok(service.update(product));
     }
 
     @DeleteMapping("/{id}")

@@ -2,16 +2,14 @@ package uz.xtreme.ecommerce.rest;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import uz.xtreme.ecommerce.domain.Order;
 import uz.xtreme.ecommerce.service.OrderService;
 import uz.xtreme.ecommerce.service.dto.OrderDTO;
-
-import java.util.List;
+import uz.xtreme.ecommerce.service.dto.OrderItemDTO;
+import uz.xtreme.ecommerce.service.dto.PageDTO;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -22,8 +20,7 @@ public class OrderResource {
     private final OrderService service;
 
     @GetMapping
-    public ResponseEntity<List<OrderDTO>> getAll(Pageable pageable) {
-        //TODO add pagination info
+    public ResponseEntity<PageDTO> getAll(Pageable pageable) {
         return ResponseEntity.ok(service.getAll(pageable));
     }
 
@@ -38,9 +35,8 @@ public class OrderResource {
     }
 
     @PutMapping
-    public ResponseEntity<Order> update(@RequestBody Order order) {
-        Order update = service.update(order);
-        return ResponseEntity.ok(update);
+    public ResponseEntity<OrderDTO> update(@RequestBody OrderDTO order) {
+        return ResponseEntity.ok(service.update(order));
     }
 
     @DeleteMapping("/{id}")
@@ -49,9 +45,16 @@ public class OrderResource {
         service.delete(id);
     }
 
-    //TODO add Item
+    @PostMapping("/items")
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addItem(@RequestBody OrderItemDTO dto) {
+        service.addItem(dto);
+    }
 
-    //TODO delete Item
+    @DeleteMapping("/{id}/{itemId}")
+    public void deleteItem(@PathVariable Long id, @PathVariable Long itemId) {
+        service.deleteItem(id, itemId);
+    }
 
     //TODO pay for order
 

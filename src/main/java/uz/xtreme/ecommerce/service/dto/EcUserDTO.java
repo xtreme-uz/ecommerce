@@ -3,7 +3,7 @@ package uz.xtreme.ecommerce.service.dto;
 import lombok.Data;
 
 @Data
-public class EcUserDTO {
+public class EcUserDTO implements DTO<Long> {
 
     private Long id;
 

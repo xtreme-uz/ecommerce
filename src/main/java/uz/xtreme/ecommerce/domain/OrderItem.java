@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Entity
 @Table(name = "ec_order_item")
-public class OrderItem {
+public class OrderItem extends Auditable<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -28,8 +28,5 @@ public class OrderItem {
 
     @Column(name = "quantity")
     private BigDecimal quantity;
-
-    @OneToOne(fetch = FetchType.EAGER)
-    private QuantityUnit quantityUnit;
 
 }

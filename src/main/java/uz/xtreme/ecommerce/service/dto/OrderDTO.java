@@ -6,7 +6,7 @@ import uz.xtreme.ecommerce.domain.OrderState;
 import java.util.List;
 
 @Data
-public class OrderDTO {
+public class OrderDTO implements DTO<Long> {
 
     private Long id;
 

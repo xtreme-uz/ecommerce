@@ -1,14 +1,16 @@
 package uz.xtreme.ecommerce.service;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import uz.xtreme.ecommerce.domain.EcUser;
 import uz.xtreme.ecommerce.repository.EcUserRepository;
+import uz.xtreme.ecommerce.service.dto.EcUserDTO;
+import uz.xtreme.ecommerce.service.mapper.EcUserMapper;
 
 @Service
-@RequiredArgsConstructor
-public class EcUserService {
+public class EcUserService extends AbsService<EcUser, Long, EcUserDTO, EcUserRepository, EcUserMapper> {
 
-    private final EcUserRepository repository;
+    public EcUserService(EcUserRepository repository, EcUserMapper mapper) {
+        super(repository, mapper);
+    }
 
-    //TODO CRUD operation
 }

@@ -6,7 +6,7 @@ import uz.xtreme.ecommerce.domain.CurrencyUnit;
 import java.math.BigDecimal;
 
 @Data
-public class ProductDTO {
+public class ProductDTO implements DTO<Long> {
 
     private Long id;
 
@@ -19,7 +19,5 @@ public class ProductDTO {
     private CurrencyUnit currencyUnit;
 
     private BigDecimal quantity;
-
-    private QuantityUnitDTO quantityUnit;
 
 }

@@ -36,9 +36,6 @@ public class Product extends Auditable<String> {
     @Column(name = "quantity")
     private BigDecimal quantity;
 
-    @OneToOne
-    private QuantityUnit quantityUnit;
-
     //TODO product options
 
 }

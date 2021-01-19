@@ -5,16 +5,14 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class OrderItemDTO {
+public class OrderItemDTO implements DTO<Long> {
 
     private Long id;
 
-    private OrderDTO order;
+    private Long orderId;
 
-    private ProductDTO product;
+    private Long productId;
 
     private BigDecimal quantity;
-
-    private QuantityUnitDTO quantityUnit;
 
 }
