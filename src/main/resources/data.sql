@@ -8,10 +8,10 @@ VALUES (1, 'admin', '2021-01-06 18:01:09.000000', null, null, 'UZS', 'very good 
 
 INSERT INTO EC_USER(id, created_by, created_date, last_modified_by, last_modified_date, username, password,
                     first_name, last_name)
-VALUES (1, 'admin', '2021-01-06 18:01:09.000000', null, null, 'alijon', '$2y$12$oyCbYnhL./PzDjLRi6wKT.HWY6Z19KyGFjobJEzlo9tUrW0w/CPaq ', 'Alijon', 'Valiyev'),
-       (2, 'admin', '2021-01-06 18:01:09.000000', null, null, 'valijon', '$2y$12$oyCbYnhL./PzDjLRi6wKT.HWY6Z19KyGFjobJEzlo9tUrW0w/CPaq ', 'Valijon', 'Soliyev'),
-       (3, 'admin', '2021-01-06 18:01:09.000000', null, null, 'solijon', '$2y$12$oyCbYnhL./PzDjLRi6wKT.HWY6Z19KyGFjobJEzlo9tUrW0w/CPaq ', 'Solijon', 'Omonov'),
-       (4, 'admin', '2021-01-06 18:01:09.000000', null, null, 'omonjon', '$2y$12$oyCbYnhL./PzDjLRi6wKT.HWY6Z19KyGFjobJEzlo9tUrW0w/CPaq ', 'Omonjon', 'Toychiyev');
+VALUES (1, 'admin', '2021-01-06 18:01:09.000000', null, null, 'alijon', '$2y$10$OkvVCxJnpqq26tNOShP.j.qxJVWENsz4Vhd8UgAs3hbHyGPfBsfOS', 'Alijon', 'Valiyev'),
+       (2, 'admin', '2021-01-06 18:01:09.000000', null, null, 'valijon', '$2y$12$oyCbYnhL./PzDjLRi6wKT.HWY6Z19KyGFjobJEzlo9tUrW0w/CPaq', 'Valijon', 'Soliyev'),
+       (3, 'admin', '2021-01-06 18:01:09.000000', null, null, 'solijon', '$2y$12$oyCbYnhL./PzDjLRi6wKT.HWY6Z19KyGFjobJEzlo9tUrW0w/CPaq', 'Solijon', 'Omonov'),
+       (4, 'admin', '2021-01-06 18:01:09.000000', null, null, 'omonjon', '$2y$12$oyCbYnhL./PzDjLRi6wKT.HWY6Z19KyGFjobJEzlo9tUrW0w/CPaq', 'Omonjon', 'Toychiyev');
 
 INSERT INTO EC_ORDER(id, created_by, created_date, last_modified_by, last_modified_date, state, customer_id)
 VALUES (1, 'alijon', '2021-01-06 18:01:09.000000', null, null, 'NEW', 1),
