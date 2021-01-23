@@ -31,11 +31,13 @@ public class EcSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests().antMatchers("/api/authenticate")
-                .permitAll().anyRequest().authenticated()
+        http.csrf().disable().authorizeRequests()
+                .antMatchers("/api/authenticate", "/h2-console/**").permitAll()
+                .anyRequest().authenticated()
                 .and().exceptionHandling().and().sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+        http.headers().frameOptions().disable();
     }
 
     @Bean(name = BeanIds.AUTHENTICATION_MANAGER)

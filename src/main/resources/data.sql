@@ -28,3 +28,11 @@ VALUES (1, 'alijon', '2021-01-06 18:01:09.000000', null, null, 4, 1, 1),
        (5, 'solijon', '2021-01-06 18:01:09.000000', null, null, 1, 3, 5),
        (6, 'omonjon', '2021-01-06 18:01:09.000000', null, null, 1, 4, 1);
 
+INSERT INTO EC_ROLE(id, created_by, created_date, last_modified_by, last_modified_date, name)
+VALUES (1, 'alijon', '2021-01-06 18:01:09.000000', null, null, 'ROLE_ADMIN'),
+       (2, 'alijon', '2021-01-06 18:01:09.000000', null, null, 'ROLE_USER'),
+       (3, 'alijon', '2021-01-06 18:01:09.000000', null, null, 'ROLE_SELLER'),
+       (4, 'alijon', '2021-01-06 18:01:09.000000', null, null, 'ROLE_CUSTOMER');
+
+INSERT INTO USER_ROLE(USER_ID, ROLE_ID)
+VALUES (1, 1), (2, 2), (3, 3), (4, 4);
