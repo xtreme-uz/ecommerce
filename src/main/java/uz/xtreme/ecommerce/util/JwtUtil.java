@@ -9,9 +9,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import uz.xtreme.ecommerce.configuration.ApplicationProperties;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
+import static java.util.Date.from;
 
 @Component
 @RequiredArgsConstructor
@@ -45,8 +48,10 @@ public class JwtUtil {
     }
 
     private String createToken(Map<String, Object> claims, String subject) {
-        return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + applicationProperties.getJwt().getExpiration()))
+        return Jwts.builder().setClaims(claims)
+                .setSubject(subject)
+                .setIssuedAt(from(Instant.now()))
+                .setExpiration(from(Instant.now().plusMillis(applicationProperties.getJwt().getExpiration())))
                 .signWith(SignatureAlgorithm.HS256, applicationProperties.getJwt().getSecret()).compact();
     }
 
