@@ -11,8 +11,8 @@ import uz.xtreme.ecommerce.util.JwtUtil;
 
 import javax.validation.Valid;
 
-@RestController
 @RequiredArgsConstructor
+@RestController
 @RequestMapping("/api/authenticate")
 public class JwtController {
 
