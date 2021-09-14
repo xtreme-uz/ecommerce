@@ -7,9 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.xtreme.ecommerce.service.OrderService;
-import uz.xtreme.ecommerce.service.dto.OrderDTO;
-import uz.xtreme.ecommerce.service.dto.OrderItemDTO;
-import uz.xtreme.ecommerce.service.dto.PageDTO;
+import uz.xtreme.ecommerce.service.dto.OrderTo;
+import uz.xtreme.ecommerce.service.dto.OrderItemTo;
+import uz.xtreme.ecommerce.service.dto.PageTo;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -20,22 +20,22 @@ public class OrderResource {
     private final OrderService service;
 
     @GetMapping
-    public ResponseEntity<PageDTO> getAll(Pageable pageable) {
+    public ResponseEntity<PageTo> getAll(Pageable pageable) {
         return ResponseEntity.ok(service.getAll(pageable));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<OrderDTO> get(@PathVariable Long id) {
+    public ResponseEntity<OrderTo> get(@PathVariable Long id) {
         return ResponseEntity.ok(service.get(id));
     }
 
     @PostMapping
-    public ResponseEntity<OrderDTO> create(@RequestBody OrderDTO dto) {
+    public ResponseEntity<OrderTo> create(@RequestBody OrderTo dto) {
         return ResponseEntity.ok(service.create(dto));
     }
 
     @PutMapping
-    public ResponseEntity<OrderDTO> update(@RequestBody OrderDTO order) {
+    public ResponseEntity<OrderTo> update(@RequestBody OrderTo order) {
         return ResponseEntity.ok(service.update(order));
     }
 
@@ -47,7 +47,7 @@ public class OrderResource {
 
     @PostMapping("/items")
     @ResponseStatus(HttpStatus.CREATED)
-    public void addItem(@RequestBody OrderItemDTO dto) {
+    public void addItem(@RequestBody OrderItemTo dto) {
         service.addItem(dto);
     }
 

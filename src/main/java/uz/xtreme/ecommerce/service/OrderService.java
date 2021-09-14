@@ -12,7 +12,7 @@ import uz.xtreme.ecommerce.service.mapper.OrderMapper;
 import java.util.Optional;
 
 @Service
-public class OrderService extends AbsService<Order, Long, OrderDTO, OrderRepository, OrderMapper> {
+public class OrderService extends AbsService<Order, Long, OrderTo, OrderRepository, OrderMapper> {
 
     private final OrderItemService orderItemService;
     private final ProductService productService;
@@ -23,11 +23,11 @@ public class OrderService extends AbsService<Order, Long, OrderDTO, OrderReposit
         this.productService = productService;
     }
 
-    public void addItem(OrderItemDTO dto) {
+    public void addItem(OrderItemTo dto) {
         Optional<Order> byId = repository.findById(dto.getOrderId());
         Order order = byId.orElseThrow(ObjectNotFoundException::new);
         if (OrderState.NEW.compareTo(order.getState()) == 0) {
-            ProductDTO product = productService.get(dto.getProductId());
+            ProductTo product = productService.get(dto.getProductId());
             if (product.getQuantity().compareTo(dto.getQuantity()) < 0)
                 throw new RuntimeException("there is no product in such quantities");
             orderItemService.create(dto);

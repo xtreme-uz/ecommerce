@@ -5,12 +5,12 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class RoleDTO implements DTO<Long> {
+public class RoleTo implements Dto<Long> {
 
     private Long id;
 
     private String name;
 
-    private List<PermissionDTO>  permissions;
+    private List<PermissionTo>  permissions;
 
 }

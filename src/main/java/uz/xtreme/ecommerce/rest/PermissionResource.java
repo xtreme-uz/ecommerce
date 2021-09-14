@@ -7,8 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.xtreme.ecommerce.service.PermissionService;
-import uz.xtreme.ecommerce.service.dto.PageDTO;
-import uz.xtreme.ecommerce.service.dto.PermissionDTO;
+import uz.xtreme.ecommerce.service.dto.PageTo;
+import uz.xtreme.ecommerce.service.dto.PermissionTo;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -19,22 +19,22 @@ public class PermissionResource {
     private final PermissionService service;
 
     @GetMapping
-    public ResponseEntity<PageDTO> getAll(Pageable pageable) {
+    public ResponseEntity<PageTo> getAll(Pageable pageable) {
         return ResponseEntity.ok(service.getAll(pageable));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PermissionDTO> get(@PathVariable Long id) {
+    public ResponseEntity<PermissionTo> get(@PathVariable Long id) {
         return ResponseEntity.ok(service.get(id));
     }
 
     @PostMapping
-    public ResponseEntity<PermissionDTO> create(@RequestBody PermissionDTO permission) {
+    public ResponseEntity<PermissionTo> create(@RequestBody PermissionTo permission) {
         return ResponseEntity.ok(service.create(permission));
     }
 
     @PutMapping
-    public ResponseEntity<PermissionDTO> update(@RequestBody PermissionDTO permission) {
+    public ResponseEntity<PermissionTo> update(@RequestBody PermissionTo permission) {
         return ResponseEntity.ok(service.update(permission));
     }
 

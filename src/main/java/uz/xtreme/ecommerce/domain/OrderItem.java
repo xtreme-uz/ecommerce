@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Entity
 @Table(name = "ec_order_item")
-public class OrderItem extends Auditable<String> {
+public class OrderItem extends Auditable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

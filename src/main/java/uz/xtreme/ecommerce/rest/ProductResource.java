@@ -7,8 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uz.xtreme.ecommerce.service.ProductService;
-import uz.xtreme.ecommerce.service.dto.PageDTO;
-import uz.xtreme.ecommerce.service.dto.ProductDTO;
+import uz.xtreme.ecommerce.service.dto.PageTo;
+import uz.xtreme.ecommerce.service.dto.ProductTo;
 
 @Log4j2
 @RequiredArgsConstructor
@@ -19,22 +19,22 @@ public class ProductResource {
     private final ProductService service;
 
     @GetMapping
-    public ResponseEntity<PageDTO> getAll(Pageable pageable) {
+    public ResponseEntity<PageTo> getAll(Pageable pageable) {
         return ResponseEntity.ok(service.getAll(pageable));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ProductDTO> get(@PathVariable Long id) {
+    public ResponseEntity<ProductTo> get(@PathVariable Long id) {
         return ResponseEntity.ok(service.get(id));
     }
 
     @PostMapping
-    public ResponseEntity<ProductDTO> create(@RequestBody ProductDTO product) {
+    public ResponseEntity<ProductTo> create(@RequestBody ProductTo product) {
         return ResponseEntity.ok(service.create(product));
     }
 
     @PutMapping
-    public ResponseEntity<ProductDTO> update(@RequestBody ProductDTO product) {
+    public ResponseEntity<ProductTo> update(@RequestBody ProductTo product) {
         return ResponseEntity.ok(service.update(product));
     }
 

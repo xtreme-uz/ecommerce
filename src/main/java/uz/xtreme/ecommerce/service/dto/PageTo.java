@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class PageDTO {
+public class PageTo {
 
     private int totalPages;
 

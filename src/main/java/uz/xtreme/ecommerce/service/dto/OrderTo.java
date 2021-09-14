@@ -6,13 +6,13 @@ import uz.xtreme.ecommerce.domain.OrderState;
 import java.util.List;
 
 @Data
-public class OrderDTO implements DTO<Long> {
+public class OrderTo implements Dto<Long> {
 
     private Long id;
 
-    private EcUserDTO customer;
+    private UserTo customer;
 
-    private List<OrderItemDTO> items;
+    private List<OrderItemTo> items;
 
     private OrderState state;
 

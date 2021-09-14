@@ -18,11 +18,11 @@ import java.util.Date;
 @Setter(AccessLevel.PROTECTED)
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class Auditable<U> {
+public class Auditable {
 
     @CreatedBy
     @Column(name = "created_by")
-    private U createdBy;
+    private String createdBy;
 
     @CreatedDate
     @Column(name = "created_date")
@@ -30,7 +30,7 @@ public class Auditable<U> {
 
     @LastModifiedBy
     @Column(name = "last_modified_by")
-    private U lastModifiedBy;
+    private String lastModifiedBy;
 
     @LastModifiedDate
     @Column(name = "last_modified_date")

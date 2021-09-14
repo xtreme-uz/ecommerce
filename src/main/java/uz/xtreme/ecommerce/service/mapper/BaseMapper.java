@@ -4,7 +4,7 @@ import uz.xtreme.ecommerce.domain.Auditable;
 
 import java.util.List;
 
-public interface BaseMapper<T extends Auditable<String>, D> {
+public interface BaseMapper<T extends Auditable, D> {
 
     D toDto(T entity);
 

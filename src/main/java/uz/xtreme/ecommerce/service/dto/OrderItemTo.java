@@ -5,7 +5,7 @@ import lombok.Data;
 import java.math.BigDecimal;
 
 @Data
-public class OrderItemDTO implements DTO<Long> {
+public class OrderItemTo implements Dto<Long> {
 
     private Long id;
 

@@ -14,7 +14,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "ec_permission")
-public class Permission extends Auditable<String> implements GrantedAuthority {
+public class Permission extends Auditable implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "ec_role")
-public class Role extends Auditable<String> implements GrantedAuthority {
+public class Role extends Auditable implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

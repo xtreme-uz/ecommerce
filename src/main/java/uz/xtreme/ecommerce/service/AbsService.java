@@ -5,8 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import uz.xtreme.ecommerce.domain.Auditable;
-import uz.xtreme.ecommerce.service.dto.DTO;
-import uz.xtreme.ecommerce.service.dto.PageDTO;
+import uz.xtreme.ecommerce.service.dto.Dto;
+import uz.xtreme.ecommerce.service.dto.PageTo;
 import uz.xtreme.ecommerce.service.mapper.BaseMapper;
 
 import java.io.Serializable;
@@ -14,16 +14,16 @@ import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
-public abstract class AbsService<T extends Auditable<String>, I extends Serializable,
-        D extends DTO<I>, R extends JpaRepository<T, I>, M extends BaseMapper<T, D>> {
+public abstract class AbsService<T extends Auditable, I extends Serializable,
+        D extends Dto<I>, R extends JpaRepository<T, I>, M extends BaseMapper<T, D>> {
 
     protected final R repository;
     protected final M mapper;
 
-    public PageDTO getAll(Pageable pageable) {
+    public PageTo getAll(Pageable pageable) {
         Page<T> all = repository.findAll(pageable);
         List<D> content = mapper.toDto(all.getContent());
-        return new PageDTO(all.getTotalPages(), all.getTotalElements(), content);
+        return new PageTo(all.getTotalPages(), all.getTotalElements(), content);
     }
 
     public D get(I id) {
